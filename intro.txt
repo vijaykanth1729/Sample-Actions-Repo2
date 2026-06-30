@@ -90,3 +90,89 @@ jobs:
             - name: Hello 
               run: echo "Hello GitHub Actions"
 
+
+YAML Basics:
+--------------
+Dictionary :
+-------------
+name: Vijay
+Roll: 25 
+
+List:
+-------
+
+fruits:
+    - apple
+    - mango
+    - banana
+
+Nested structure:
+--------------------
+person:
+    name: Vijay
+    roll: 25 
+
+
+Indentation matters:
+---------------------
+correct:
+-------
+
+jobs:
+    build:
+        runs-on: ubuntu-latest 
+
+wrong:
+-----
+jobs:
+build:
+ runs-on: 
+
+
+Events (Triggers):
+--------------------
+Workflow starts using events..
+
+push
+-----
+
+on:
+    push: 
+
+Pull request:
+---------------
+
+on:
+  pull_request:
+
+Multiple events:
+-----------------
+
+on:
+    push:
+    pull_request:
+    workflow_dispatch:  (this is nothing but saying like execute workflow manually..)
+
+
+
+Specific branch:
+----------------
+
+on:
+    push:
+        branches:
+            - main 
+
+Specific tags:
+-----------------
+
+on:
+    push:
+        tags:
+            - v*
+
+Manual Trigger:
+----------------
+
+on:
+ workflow_dispatch: 
