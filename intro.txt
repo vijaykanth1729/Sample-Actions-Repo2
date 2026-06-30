@@ -1,0 +1,92 @@
+Before Github actions:
+----------------------
+Developers write the code:
+
+Gitpush-->Build-->Unit Testing-->Security scan -->Package-->Deploy..
+
+Without  automaation-->Everything is manual. Error prone.. 
+
+Need automation This is where CICD comes in..
+
+What is CI?: Continuous Integration ,
+
+Pushes code-->Compile-->Run Tests-->Quality checks..
+
+What is CD?: Continous Delivery/Deployment
+
+Build  --> Deploy  Automatically..
+
+CI/CD Tools: Jenkins, GitLab CI, AzureDevOps, CircleCI, Teamcity, GithubActions..
+
+Why Github actions??:  Source code already present in GIT.
+
+Github Repo-->Github actions-->Github Runners. (All integrated)
+
+
+Github actions Architecture:
+-------------------------------
+
+Developer-->GitPush-->Github Repo-->WorkFlow_Trigger-->WorkFlow-->Runner-->Jobs-->Steps.
+
+Memorize: Workflow, Job, Step, Runner, Action .
+
+Workflow: Entire Pipeline  
+ eg: Build, Test, Deploy.
+
+Stored as:
+
+  .github/workflows/main.yaml
+
+Job:  Logical Group of Tasks
+
+Ex: Job1 = Build, Job2 = Test , Job3 = Deploy 
+
+Step:  Individual commands..
+
+ex: steps:
+        - checkout code 
+        - install packages 
+        - run tests
+each line is a step. 
+
+Runner: Machine executing workflow..
+
+Github provides: Ubuntu-Latest, Windows-Latest, MacOs-Latest .
+
+ex: runs-on: ubuntu-latest
+
+Action: Resusable code. 
+
+Instead of writing: git clone repo 
+
+use: 
+
+    ex: uses: action/checkout@v4
+
+Actions performs the work..
+
+First workflow:
+----------------
+
+Repository Structure
+
+    .github
+        |
+        workflows
+            |
+            hello.yml 
+
+
+ex:
+----
+
+name: First Workflow
+on:
+    push:
+jobs:
+    demo:
+        runs-on: ubuntu-latest 
+        steps:
+            - name: Hello 
+              run: echo "Hello GitHub Actions"
+
