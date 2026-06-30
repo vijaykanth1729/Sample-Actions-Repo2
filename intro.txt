@@ -14,7 +14,7 @@ Pushes code-->Compile-->Run Tests-->Quality checks..
 
 What is CD?: Continous Delivery/Deployment
 
-Build  --> Deploy  Automatically..
+Build  --> Deploy  Automatically.....
 
 CI/CD Tools: Jenkins, GitLab CI, AzureDevOps, CircleCI, Teamcity, GithubActions..
 
