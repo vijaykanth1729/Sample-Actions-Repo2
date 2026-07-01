@@ -1,0 +1,14 @@
+name: create a sample pipeline
+
+on:
+  workflow_dispatch:
+
+env:
+  ENVIRONMENT: production environment
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Hello from GitHub Actions $ENVIRONMENT"

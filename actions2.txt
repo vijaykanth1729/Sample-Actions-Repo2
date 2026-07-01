@@ -1,0 +1,80 @@
+
+Actions Marketplace:
+-------------------
+
+Reusable Modules:
+
+ex: actions/checkout 
+    actions/upload-artifact
+    docker/login-action
+    docker/build-push-action 
+
+Most used action,
+
+ - uses: actions/checkout@v4
+
+ what happens?:  Git clone 
+
+ Variables:
+ ----------
+ Hardcoded:
+   run: echo "dev"
+
+use variables:
+---------------
+env:
+    ENVIRONMENT: dev 
+
+inside your workflow:
+-----------------------
+run: echo $ENVIRONMENT 
+
+Application level:
+
+ env:
+    APP_NAME: flaskapp 
+    VERSION: v1 
+
+
+Secrets:
+-------------
+Never hardcode the passwords..
+
+PASSWORD=admin123 (Bad )
+
+Use Github Secrets
+------------------
+Settings-->Secrets and variables 
+
+Create:
+
+DOCKER_USERNAME
+DOCKER_PASSWORD 
+
+IN YOUR WORKFLOW:  ${{ secrets.DOCKER_USERNAME }}
+${{ secrets.DOCKER_PASSWORD }}
+
+Multi stage pipelines:
+-----------------------
+
+code-->Build-->Unit Testing-->Security scan-->Docker build-->Push-->Deploy 
+
+ex:
+--
+
+jobs:
+    build:
+    
+    test:
+        needs: build 
+    
+    security:
+        needs: test 
+    
+    docker:
+        needs: security 
+    
+    deploy:
+        needs: docker 
+
+

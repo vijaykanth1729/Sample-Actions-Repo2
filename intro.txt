@@ -176,3 +176,46 @@ Manual Trigger:
 
 on:
  workflow_dispatch: 
+
+Understanding Jobs:
+----------------------
+
+Multiple jobs:
+-------------
+
+jobs:
+    build:
+
+    test:
+
+    deploy:
+
+
+Job dependencies:
+----------------------
+
+jobs:
+    build:
+
+    test:
+        needs: build
+    
+    deploy:
+        needs: test 
+
+execution happens: Build-->test--deploy..
+
+
+Understanding steps:
+---------------------
+steps:
+    - name: step1"
+      run: echo "Hello"
+    
+    - name: step2
+      run: pwd 
+    
+    - name: step3 
+      run: ls -la 
+
+
